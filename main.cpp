@@ -24,9 +24,9 @@ struct CTypeStruct
 
 void Exercise4()
 {
-    // Exercise4: реализовать класс умного указателя
+    // Exercise4: СЂРµР°Р»РёР·РѕРІР°С‚СЊ РєР»Р°СЃСЃ СѓРјРЅРѕРіРѕ СѓРєР°Р·Р°С‚РµР»СЏ
     // CSmartPtr<CIntStruct> ptr(new CIntStruct(123))
-    // реализация *ptr; ptr->ShowData, сравнение указателя на 0
+    // СЂРµР°Р»РёР·Р°С†РёСЏ *ptr; ptr->ShowData, СЃСЂР°РІРЅРµРЅРёРµ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° 0
 
     CSmartPtr<CIntStruct> cSmartPtrToIntStruct(new CIntStruct(2));
 
@@ -107,8 +107,8 @@ CustomPair<T> FindMinMax(T* tStart, T* tEnd)
 
 void Exercise3()
 {
-    // Exercise3: в заданной итераторами последовательности найти пару чисел,
-    // которые являются минимальным и максимальным значением
+    // Exercise3: РІ Р·Р°РґР°РЅРЅРѕР№ РёС‚РµСЂР°С‚РѕСЂР°РјРё РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё РЅР°Р№С‚Рё РїР°СЂСѓ С‡РёСЃРµР»,
+    // РєРѕС‚РѕСЂС‹Рµ СЏРІР»СЏСЋС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅС‹Рј Рё РјР°РєСЃРёРјР°Р»СЊРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј
 
     int    szIntsArray[]    = {9, 2, 3, 4, 5, 6, 7};
     int    iIntsCount       = sizeof(szIntsArray)/sizeof(szIntsArray[0]);
@@ -141,7 +141,7 @@ T GetArithmeticMean(T* pStart, T* pEnd)
 
 void Exercise2()
 {
-    // Exercise2: написать функцию нахождения среднего арифметического в массиве
+    // Exercise2: РЅР°РїРёСЃР°С‚СЊ С„СѓРЅРєС†РёСЋ РЅР°С…РѕР¶РґРµРЅРёСЏ СЃСЂРµРґРЅРµРіРѕ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРіРѕ РІ РјР°СЃСЃРёРІРµ
 
     int    szIntsArray[]    = {9, 2, 3, 4, 5, 6, 7};
     int    iIntsCount       = sizeof(szIntsArray)/sizeof(szIntsArray[0]);
@@ -185,8 +185,8 @@ void reverse(int* pValue)
 
 void Exercise1()
 {
-    // Exercise1: написать функцию переворота числа (строки)
-    // вид функции void reverse(T* tStartValue);
+    // Exercise1: РЅР°РїРёСЃР°С‚СЊ С„СѓРЅРєС†РёСЋ РїРµСЂРµРІРѕСЂРѕС‚Р° С‡РёСЃР»Р° (СЃС‚СЂРѕРєРё)
+    // РІРёРґ С„СѓРЅРєС†РёРё void reverse(T* tStartValue);
 
     char chString[] = "string";
     reverse(chString);
