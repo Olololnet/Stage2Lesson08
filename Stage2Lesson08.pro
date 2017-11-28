@@ -7,4 +7,3 @@ SOURCES += main.cpp
 
 HEADERS += \
     csmartptr.h
-

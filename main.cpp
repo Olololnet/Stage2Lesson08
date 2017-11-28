@@ -67,46 +67,6 @@ struct CustomPair
     }
 };
 
-/*template<typename T>
-CustomPair<T> FindMinMax(T* tStart, T* tEnd)
-{
-    CustomPair<T> cPair;
-
-    if (tEnd < tStart)
-        CustomSwap(tStart, tEnd);
-
-    if (tStart == tEnd)
-    {
-        cPair.tMin = cPair.tMax = *tStart;
-        return cPair;
-    }
-    else
-    {
-        if (tStart[0] < tStart[1])
-        {
-            cPair.tMin = tStart[0];
-            cPair.tMax = tStart[1];
-        }
-        else
-        {
-            cPair.tMin = tStart[1];
-            cPair.tMax = tStart[0];
-        }
-        tStart += 2;
-    }
-
-    while (tStart < tEnd)
-    {
-        if (*tStart > cPair.tMax)
-            cPair.tMax = *tStart;
-        if (*tStart < cPair.tMin)
-            cPair.tMin = *tStart;
-        ++tStart;
-    }
-
-    return cPair;
-}*/
-
 template<typename T>
 CustomPair<T> FindMinMax(T* tStart, T* tEnd)
 {
@@ -242,6 +202,7 @@ void Exercise1()
 
 int main()
 {
+
 //    Exercise4();
 //    Exercise3();
 //    Exercise2();
