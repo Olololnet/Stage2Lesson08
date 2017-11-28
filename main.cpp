@@ -1,5 +1,7 @@
 #include <iostream>
 #include "csmartptr.h"
+#include <limits>
+#include "assert.h"
 
 struct CIntStruct
 {
@@ -65,7 +67,7 @@ struct CustomPair
     }
 };
 
-template<typename T>
+/*template<typename T>
 CustomPair<T> FindMinMax(T* tStart, T* tEnd)
 {
     CustomPair<T> cPair;
@@ -92,6 +94,35 @@ CustomPair<T> FindMinMax(T* tStart, T* tEnd)
         }
         tStart += 2;
     }
+
+    while (tStart < tEnd)
+    {
+        if (*tStart > cPair.tMax)
+            cPair.tMax = *tStart;
+        if (*tStart < cPair.tMin)
+            cPair.tMin = *tStart;
+        ++tStart;
+    }
+
+    return cPair;
+}*/
+
+template<typename T>
+CustomPair<T> FindMinMax(T* tStart, T* tEnd)
+{
+    CustomPair<T> cPair;
+
+    if (tEnd < tStart)
+        CustomSwap(tStart, tEnd);
+
+    if (tStart == tEnd)
+    {
+        cPair.tMin = cPair.tMax = *tStart;
+        return cPair;
+    }
+
+    cPair.tMin = std::numeric_limits<T>::max();
+    cPair.tMax = std::numeric_limits<T>::min();
 
     while (tStart < tEnd)
     {
@@ -152,11 +183,26 @@ void Exercise2()
     std::cout << GetArithmeticMean(szDoublesArray, szDoublesArray + iDoublesCount) << std::endl;
 }
 
-template <typename T>
-void reverse(T* tStartValue)
+template<typename T>
+void reverse(T* pValue)
 {
-    T* tStartCopy = tStartValue;
-    T* tEndValue  = NULL;
+    T tValueCopy(*pValue);
+    T tConstructedIntegral(0);
+
+    while (tValueCopy)
+    {
+        tConstructedIntegral = tConstructedIntegral*10 + tValueCopy%10;
+        tValueCopy /= 10;
+    }
+
+    *pValue = tConstructedIntegral;
+}
+
+template<>
+void reverse(char* tStartValue)
+{
+    char* tStartCopy = tStartValue;
+    char* tEndValue  = NULL;
     const char chEnd = '\0';
 
     while (*tStartCopy != chEnd)
@@ -169,18 +215,15 @@ void reverse(T* tStartValue)
 }
 
 template<>
-void reverse(int* pValue)
+void reverse(double*)
 {
-    int iValueCopy(*pValue);
-    int iConstructedInt(0);
+    assert(std::numeric_limits<double>::is_integer);
+}
 
-    while (iValueCopy)
-    {
-        iConstructedInt = iConstructedInt*10 + iValueCopy%10;
-        iValueCopy /= 10;
-    }
-
-    *pValue = iConstructedInt;
+template<>
+void reverse(float*)
+{
+    assert(std::numeric_limits<float>::is_integer);
 }
 
 void Exercise1()
@@ -192,7 +235,7 @@ void Exercise1()
     reverse(chString);
     std::cout << chString << std::endl;
 
-    int iIntValue = 123456;
+    float iIntValue = 123456;
     reverse(&iIntValue);
     std::cout << iIntValue << std::endl;
 }
